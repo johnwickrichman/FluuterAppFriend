@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1043777860398",
+    "project_id": "teeappfriend",
+    "storage_bucket": "teeappfriend.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1043777860398:android:5a0d2a8a3ad15143c9c0bf",
+        "android_client_info": {
+          "package_name": "com.godspeedmaster.teeappfriend"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1043777860398-pihdrcv9ukfn85loh9fm68ovnlpbjooa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvLatY9Y9CcxDVN8aewnT8q6WhuvqEPRI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1043777860398-pihdrcv9ukfn85loh9fm68ovnlpbjooa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

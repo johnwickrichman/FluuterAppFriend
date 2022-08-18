@@ -1,13 +1,36 @@
 import 'dart:io';
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:teeappfriend/states/authen.dart';
+import 'package:teeappfriend/states/list_all_member.dart';
 import 'package:teeappfriend/utility/my_constant.dart';
 
-void main() {
-  HttpOverrides.global = MyHttpOverride();
+final Map<String, WidgetBuilder> map = {
+  '/authen': (context) => const Authen(),
+  '/listAllMember': (context) => const ListAllMember(),
+};
 
-  runApp(MyApp());
+String? firstState;
+
+Future<void> main() async {
+  HttpOverrides.global = MyHttpOverride();
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp();
+
+  SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+  var user = sharedPreferences.getString('id');
+  print('user ==> $user');
+
+  if (user == null) {
+    firstState = '/authen';
+    runApp(MyApp());
+  } else {
+    firstState = '/listAllMember';
+    runApp(MyApp());
+  }
 }
 
 class MyApp extends StatelessWidget {
@@ -16,6 +39,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.red,
         appBarTheme: AppBarTheme(
@@ -24,7 +48,8 @@ class MyApp extends StatelessWidget {
           elevation: 0,
         ),
       ),
-      home: Authen(),
+      routes: map,
+      initialRoute: firstState,
     );
   }
 }
