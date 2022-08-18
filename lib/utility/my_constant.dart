@@ -38,7 +38,7 @@ class MyConstant {
   TextStyle h3ActiveStyle() {
     return TextStyle(
       fontSize: 16,
-      color: dark,
+      color: active,
       fontWeight: FontWeight.w500,
     );
   }
